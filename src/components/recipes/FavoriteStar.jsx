@@ -2,6 +2,7 @@ import React from "react";
 import { useFetcher } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { updateRecipe } from "../../rest/recipes";
+import styles from './FavoriteStar.module.css';
 
 // Update recipe.favorite property.
 export async function action({ request, params }) {
@@ -18,7 +19,7 @@ export default function FavoriteStar({ recipe }) {
   let favorite = recipe.favorite;
   return (
     <fetcher.Form method="post">
-      <Button
+      <Button className={styles.star}
         type="submit"
         name="favorite"
         value={favorite ? "false" : "true"}

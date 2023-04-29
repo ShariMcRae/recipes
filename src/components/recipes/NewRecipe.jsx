@@ -4,7 +4,7 @@ import { Form, redirect } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { createRecipe } from "../../rest/recipes";
 
-import styles from '../../css/layout.module.css';
+import styles from './NewRecipe.module.css';
 
 // Create a new recipe record when they click
 // the New button and navigate to the edit recipe page.

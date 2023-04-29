@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { Badge, ListGroup, Nav } from "react-bootstrap";
 
-import styles from '../../css/layout.module.css';
+import styles from './RecipeList.module.css';
 
 // Display the list of recipes, allowing users
 // to select from them, and pass along the search/filter

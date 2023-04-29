@@ -8,7 +8,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import FavoriteStar from "./FavoriteStar";
 import { getRecipe } from "../../rest/recipes";
 
-import styles from '../../css/layout.module.css';
+import styles from './DisplayRecipe.module.css';
 
 // Load the recipe. Throw an error if it's not found.
 // Put the recipe type in the description. 

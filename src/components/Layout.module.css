@@ -1,0 +1,40 @@
+.sidebar {
+  background-color:rgb(192, 214, 251);
+  border-right: solid 1px rgb(161, 160, 160);
+  display: flex;
+  flex-direction: column; 
+}
+
+.sidebar h3 {
+  padding: 1rem 01rem;
+  order: 1;
+  margin-bottom: 0;
+}
+
+.sidebar div.search {
+  display: flex;
+  padding: 1rem;
+  border-bottom: solid 1px rgb(161, 160, 160);
+  background-color: rgb(215, 228, 252);
+}
+
+.hideBar {
+  width:4px;
+  background-color: rgb(247, 248, 249);
+}
+
+.hideBar:hover {
+  width:4px;
+  background-color: rgb(226, 228, 230);
+  cursor: ew-resize;
+}
+
+.detail {
+  flex: 1;
+  padding: 2rem 4rem;
+  overflow: auto;
+}
+
+.hidden {
+  display:none !important;
+}

@@ -1,0 +1,23 @@
+div.ingredientListItem {
+  padding: 2px;
+  padding-left: 0.5rem;
+  padding-bottom: 4px;
+}
+
+div.ingredientListItem:hover {
+  background: #f3f2f2;
+}
+
+div.cardHeader {
+  background-color: rgb(215, 228, 252);
+}
+
+div.cardFooter {
+  background-color: rgb(215, 228, 252);
+}
+
+button.recipe {
+  background-color: rgb(192, 214, 251);
+  border-color: #9e9b9b;
+  color: black;
+}

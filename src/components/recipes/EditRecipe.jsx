@@ -18,9 +18,9 @@ import {
 
 import { updateRecipe, getRecipe } from "../../rest/recipes";
 import { getRecipeTypes } from "../../rest/recipeTypes";
-import IngredientListEdit from "./IngredientListEdit";
+import IngredientList from "./IngredientList";
 
-import styles from '../../css/layout.module.css';
+import styles from './EditRecipe.module.css';
 
 // Load the recipe, the recipe types, and
 // the search/filter parameters to preserve the menu state.
@@ -82,7 +82,10 @@ const EditRecipe = () => {
   // update newRecipe for every change
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewRecipe({ ...newRecipe, [name]: value });
+    setNewRecipe(previousState => {
+      return { ...previousState, [name]: value }
+    });
+
     // @ts-ignore
     // Call setUnsavedChanges from context
     // to indicate unsaved changes.
@@ -128,7 +131,7 @@ const EditRecipe = () => {
               />
             </label>
           </FormGroup>
-          <IngredientListEdit
+          <IngredientList
             ingredients={ingredients}
             setIngredients={setIngredients}
             setUnsavedChanges={

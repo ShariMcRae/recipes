@@ -6,9 +6,9 @@ import DisplayRecipe, { loader as recipeLoader } from "./components/recipes/Disp
 import Layout, { loader as layoutLoader } from "./components/Layout";
 import EditRecipe, { loader as editRecipeLoader } from "./components/recipes/EditRecipe";
 
-import Default from "./components/recipes/Default";
-import ErrorPage from "./components/ErrorPage";
-import NoPage from "./components/recipes/NoPage";
+import Default from "./components/general/Default";
+import ErrorPage from "./components/general/ErrorPage";
+import NoPage from "./components/general/NoPage";
 
 import { action as deleteRecipe } from "./routes/delete";
 import { action as createRecipe } from "./components/recipes/NewRecipe";

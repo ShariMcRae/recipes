@@ -1,0 +1,19 @@
+button.star {
+  box-shadow: none;
+  border: none;
+  background-color: inherit;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 0;
+}
+
+button.star[value="true"] {
+  color: #a4a4a4;
+}
+
+button.star[value="true"]:hover,
+button.star[value="false"]:active:hover,
+button.star[value="false"] {
+  color: #eeb004;
+  background-color: inherit;
+}

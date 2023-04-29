@@ -11,7 +11,7 @@ import FormGroup from "react-bootstrap/FormGroup";
 import FormControl from "react-bootstrap/FormControl";
 import ListGroup from "react-bootstrap/ListGroup";
 
-import styles from '../../css/layout.module.css';
+import styles from './IngredientList.module.css';
 
 // Create a card to hold the list of ingredients.
 // Allow for rows to be deleted and added.

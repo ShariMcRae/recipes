@@ -3,13 +3,11 @@ import { Outlet, useLoaderData } from "react-router-dom";
 
 import { getRecipes } from "../rest/recipes";
 import { getRecipeTypes } from "../rest/recipeTypes";
-import recipeImg from "../images/dinnerPlate.webp";
 import FilterRecipes from "./recipes/FilterRecipes";
 import NewRecipe from "./recipes/NewRecipe";
 import RecipeList from "./recipes/RecipeList";
 
-
-import styles from '../css/layout.module.css';
+import styles from './Layout.module.css';
 
 // Load the list of recipes matching the
 // search and filter parameters, adjusting
@@ -70,10 +68,10 @@ export default function Layout() {
           <img
             width="50"
             className="ms-2"
-            src={recipeImg}
-            alt="Recipe Library icon."
+            src={process.env.PUBLIC_URL + '/logo.webp'}
+            alt="Logo"
           />
-          <span className="ps-4 pt-2">Recipe Library</span>
+          <span className="ps-4 pt-2">{document.title}</span>
         </h3>
         <div className={styles.search}>
           <FilterRecipes
