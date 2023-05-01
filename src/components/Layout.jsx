@@ -64,7 +64,7 @@ export default function Layout() {
   return (
     <>
       <div className={`${styles.sidebar} ${isHidden ? styles.hidden: ''}`}>
-        <h3 className="d-flex">
+        <h3 className="d-flex p-3">
           <img
             width="50"
             className="ms-2"
@@ -73,7 +73,7 @@ export default function Layout() {
           />
           <span className="ps-4 pt-2">{document.title}</span>
         </h3>
-        <div className={styles.search}>
+        <div className={`${styles.search} p-3`}>
           <FilterRecipes
             q={q}
             qType={qType}
@@ -95,12 +95,12 @@ export default function Layout() {
         />
       </div>
       <div
-        className={styles.hideBar}
+        className={`${styles.hideBar} pe-1`}
         onClick={() => setIsHidden(!isHidden)}
         data-toggle="tooltip"
         title="Click to hide/show menu!"
       ></div>
-      <div className={styles.detail}>
+      <div className={`${styles.detail} px-5 py-4`}>
         <Outlet context={[unsavedChanges, setUnsavedChanges]} />
       </div>
     </>

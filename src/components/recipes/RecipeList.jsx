@@ -35,7 +35,7 @@ const RecipeList = ({
               }}
             >
               <ListGroup>
-                <ListGroup.Item className="d-flex justify-content-between ps-2 pe-1 py-1">
+                <ListGroup.Item className="d-flex justify-content-between ps-2 pe-0 py-1">
                   <div>
                     {recipe.description ? (
                       <>{recipe.description}</>
@@ -44,7 +44,8 @@ const RecipeList = ({
                     )}
                   </div>
                   <Badge bg="inherit" pill className={styles.recipeList}>
-                    {recipe.favorite && <h5 className={styles.recipeList}>★</h5>}
+                    {recipe.favorite && 
+                    <h5 className={`${styles.recipeList} mt-1`}>★</h5>}
                   </Badge>
                 </ListGroup.Item>
               </ListGroup>

@@ -9,13 +9,12 @@ div.recipes {
   border-bottom: solid 1px rgb(161, 160, 160);
 }
 
-/* stars on navigation sidebar */
 .recipes a span {
   float: right;
   color: #eeb004;
 }
 
-.recipes a.active div {
+.recipes a:global(.active) div {
   background-color: rgb(221, 232, 252);
 }
 
@@ -25,7 +24,7 @@ div.recipes {
 
 .recipes div:hover {
   background: #f3f2f2;
-}
+} 
 
 html,
 body {
@@ -33,9 +32,5 @@ body {
 }
 
 h5.recipeList {
-  padding: 0;
-  margin-right: 0;
-  margin-left: 1rem;
-  line-height: 0;
-  margin-top: 0.4rem;
+  line-height: .2rem;
 }

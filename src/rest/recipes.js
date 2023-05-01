@@ -17,10 +17,9 @@ const RECIPES_ENDPOINT =
 // the recipeTypeId as a reference to the recipe types table.
 export async function getRecipes(query, sortBy, sortOrder, recipeTypes) {
   let recipes = await getRecords("description", query, RECIPES_ENDPOINT, sortBy, sortOrder);
-  //const recipeTypes = await getRecipeTypes("", "id", "asc");
   let temp = recipes.map((recipe) => {
     const recipeType = recipeTypes.filter(recipeType => recipeType.id === recipe.recipeTypeId);
-    return {...recipe, recipeType: recipeType.length?recipeType[0].typeName:""};
+    return {...recipe, recipeType: recipeType.length ? recipeType[0].typeName : ""};
   });
   return temp;
 }

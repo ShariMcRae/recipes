@@ -20,8 +20,7 @@ export async function loader({ params, request }) {
   if (!recipe) throw new Error("Recipe not found.");
   else
     recipe.description += recipe.recipeType
-      ? " (" + recipe.recipeType + ")"
-      : "";
+      ? " (" + recipe.recipeType + ")" : "";
 
   const url = new URL(request.url);
   const q = url.searchParams.get("q");
@@ -98,11 +97,7 @@ const DisplayRecipe = () => {
             method="post"
             action="delete"
             onSubmit={(event) => {
-              if (
-                !window.confirm(
-                  "Please confirm that you want to delete this recipe."
-                )
-              )
+              if (!window.confirm("Please confirm that you want to delete this recipe."))
                 event.preventDefault();
             }}
           >
