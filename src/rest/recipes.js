@@ -11,7 +11,7 @@ import {
 // recipes located at MockApi.com.
 
 const RECIPES_ENDPOINT =
-  "https://642e25ec2b883abc6407dd04.mockapi.io/api/v1/recipes";
+  "https://645f9d78fe8d6fb29e22b911.mockapi.io/api/v1/recipes";
 
 // Load the recipes and for each one, add a recipeType field using
 // the recipeTypeId as a reference to the recipe types table.

@@ -16,26 +16,32 @@ const RecipeList = ({
   setUnsavedChanges,
 }) => {
   return (
-    <Nav className={styles.recipes}>
+    <Nav className={`${styles.recipes}`}>
+
       {recipes.length ? (
         <>
           {recipes.map((recipe) => (
-            <NavLink
+            <Nav.Link className="p-0"
               key={recipe.id}
-              to={`recipes/${recipe.id}?q=${q ? q : ""}&qType=${qType}`}
+              href={`/${recipe.id}?q=${q ? q : ""}&qType=${qType}`}
+
               onClick={(event) => {
                 if (
-                  !unsavedChanges ||
-                  window.confirm(
+                    !unsavedChanges ||
+                    window.confirm(
                     "There are unsaved changes to the current recipe. Do you wish to continue?"
-                  )
+                    )
                 )
-                  setUnsavedChanges(false);
-                else event.preventDefault();
-              }}
+                    setUnsavedChanges(false);
+                else {
+                    event.preventDefault();
+                    return false;
+                }}}
+
+
             >
               <ListGroup>
-                <ListGroup.Item className="d-flex justify-content-between ps-2 pe-0 py-1">
+                <ListGroup.Item className="d-flex justify-content-between ps-2 pe-0 py-2">
                   <div>
                     {recipe.description ? (
                       <>{recipe.description}</>
@@ -49,7 +55,7 @@ const RecipeList = ({
                   </Badge>
                 </ListGroup.Item>
               </ListGroup>
-            </NavLink>
+            </Nav.Link>
           ))}
         </>
       ) : (

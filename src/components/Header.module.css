@@ -1,0 +1,9 @@
+div.search {
+  display: flex;
+}
+
+.menuTitle {
+  border-bottom: solid 1px rgb(161, 160, 160);
+  padding: 0.75rem;
+  background-color: #eaf0fb;
+}

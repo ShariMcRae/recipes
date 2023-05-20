@@ -30,19 +30,19 @@ const router = createBrowserRouter(
       <Route errorElement={<ErrorPage />}>
         <Route index element={<Default />} />
         <Route
-          path="recipes/:recipeId"
+          path=":recipeId"
           element={<DisplayRecipe />}
           loader={recipeLoader}
           action={toggleStar}
         />
         <Route
-          path="recipes/:recipeId/edit"
+          path=":recipeId/edit"
           element={<EditRecipe />}
           loader={editRecipeLoader}
           action={saveRecipe}
         />
         <Route
-          path="recipes/:recipeId/delete"
+          path=":recipeId/delete"
           action={deleteRecipe}
         />
         <Route path="*" element={<NoPage />} />    

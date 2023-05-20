@@ -7,7 +7,8 @@ import FilterRecipes from "./recipes/FilterRecipes";
 import NewRecipe from "./recipes/NewRecipe";
 import RecipeList from "./recipes/RecipeList";
 
-import styles from './Layout.module.css';
+import styles from "./Layout.module.css";
+import Header from "./Header";
 
 // Load the list of recipes matching the
 // search and filter parameters, adjusting
@@ -62,47 +63,26 @@ export default function Layout() {
   // on the left, a dividing line that can be used to hide/show the menu,
   // and an outlet on the right for updating the page content.
   return (
-    <>
-      <div className={`${styles.sidebar} ${isHidden ? styles.hidden: ''}`}>
-        <h3 className="d-flex p-3">
-          <img
-            width="50"
-            className="ms-2"
-            src={process.env.PUBLIC_URL + '/logo.webp'}
-            alt="Logo"
-          />
-          <span className="ps-4 pt-2">{document.title}</span>
-        </h3>
-        <div className={`${styles.search} p-3`}>
-          <FilterRecipes
-            q={q}
-            qType={qType}
-            recipeTypes={recipeTypes}
-            unsavedChanges={unsavedChanges}
-            setUnsavedChanges={setUnsavedChanges}
-          />
-          <NewRecipe
-            unsavedChanges={unsavedChanges}
-            setUnsavedChanges={setUnsavedChanges}
-          />
+    <div className="h-100">
+      <Header
+        q={q}
+        qType={qType}
+        recipes={recipes}
+        recipeTypes={recipeTypes}
+        unsavedChanges={unsavedChanges}
+        setUnsavedChanges={setUnsavedChanges}
+      />
+      <main className="h-100" style={{ backgroundColor: "#eaf0fb" }}>
+        <div>
+          <div
+            className={`${styles.detail} px-5 py-5`}
+            style={{ backgroundColor: "#ffffff" }}
+          >
+            <Outlet context={[unsavedChanges, setUnsavedChanges]} />
+          </div>
+          <div className={styles.menuFooter}> </div>
         </div>
-        <RecipeList
-          q={q}
-          qType={qType}
-          recipes={recipes}
-          unsavedChanges={unsavedChanges}
-          setUnsavedChanges={setUnsavedChanges}
-        />
-      </div>
-      <div
-        className={`${styles.hideBar} pe-1`}
-        onClick={() => setIsHidden(!isHidden)}
-        data-toggle="tooltip"
-        title="Click to hide/show menu!"
-      ></div>
-      <div className={`${styles.detail} px-5 py-4`}>
-        <Outlet context={[unsavedChanges, setUnsavedChanges]} />
-      </div>
-    </>
+      </main>
+    </div>
   );
 }

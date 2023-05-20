@@ -10,7 +10,7 @@ import styles from './NewRecipe.module.css';
 // the New button and navigate to the edit recipe page.
 export async function action() {
   const recipe = await createRecipe();
-  return redirect(`/recipes/${recipe.id}`);
+  return redirect(`/${recipe.id}`);
 }
 
 // Display form to create new recipes.

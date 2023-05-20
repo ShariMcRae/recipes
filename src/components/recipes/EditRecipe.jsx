@@ -61,7 +61,7 @@ export async function action({ request, params }) {
     ingredients: ingredients,
   };
   await updateRecipe(updates.id, recipeChanges);
-  return redirect(`/recipes/${params.recipeId}?q=${q}&qType=${qType}`);
+  return redirect(`/${params.recipeId}?q=${q}&qType=${qType}`);
 }
 
 // Render the form for editing a recipe.
@@ -94,12 +94,12 @@ const EditRecipe = () => {
 
   return (
     // @ts-ignore
-    <Form method="post" onSubmit={() => context[1](false)} >
-      <Row className="my-3">
+    <Form method="post" onSubmit={() => context[1](false)}>
+      <Row>
         <h3>Edit Recipe</h3>
       </Row>
       <Row>
-        <Col className="col-sm me-4">
+        <Col className="me-4">
           <FormGroup className="mb-3">
             <label>
               <span>Description</span>
@@ -110,7 +110,7 @@ const EditRecipe = () => {
                 className="mt-1"
                 value={newRecipe.description}
                 onChange={handleChange}
-                style={{ width: "20rem" }}
+                
                 aria-label="Description"
               />
             </label>
@@ -126,7 +126,7 @@ const EditRecipe = () => {
                 className="mt-1"
                 value={newRecipe.imageURL}
                 onChange={handleChange}
-                style={{ width: "20rem" }}
+                
                 aria-label="Image URL"
               />
             </label>
@@ -195,7 +195,7 @@ const EditRecipe = () => {
               ) {
                 // @ts-ignore
                 context[1](false);
-                navigate(`/recipes/${newRecipe.id}?q=${q}&qType=${qType}`);
+                navigate(`/${newRecipe.id}?q=${q}&qType=${qType}`);
               }
             }}
           >
