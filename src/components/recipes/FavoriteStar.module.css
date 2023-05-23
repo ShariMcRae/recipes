@@ -8,12 +8,12 @@ button.star {
 }
 
 button.star[value="true"] {
-  color: #a4a4a4;
+  color: var(--border-color);
 }
 
 button.star[value="true"]:hover,
 button.star[value="false"]:active:hover,
 button.star[value="false"] {
-  color: #eeb004;
+  color: var(--star-color);
   background-color: inherit;
 }

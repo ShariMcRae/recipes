@@ -16,6 +16,7 @@ import { action as toggleStar } from "./components/recipes/FavoriteStar";
 import { action as saveRecipe } from "./components/recipes/EditRecipe";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 
 // Define our routes for React Router.
 const router = createBrowserRouter(

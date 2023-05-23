@@ -38,7 +38,6 @@ const DisplayRecipe = () => {
       <div className="container ">
         <div className="row">
           <div className="col">
-
               <img
                 className={`${styles.recipe} mb-5`}
                 key={recipe.imageURL}
@@ -89,7 +88,7 @@ const DisplayRecipe = () => {
                     name="qType"
                     value={qType ? qType : ""}
                   />
-                  <Button type="submit" className={`${styles.recipe} me-2`}>
+                  <Button type="submit" className="recipe me-2">
                     Edit
                   </Button>
                 </Form>
@@ -114,12 +113,12 @@ const DisplayRecipe = () => {
                     name="qType"
                     value={qType ? qType : ""}
                   />
-                  <Button type="submit" className={styles.recipe}>
+                  <Button type="submit" className="recipe">
                     Delete
                   </Button>
                 </Form>
               </div>
-            </div>{" "}
+            </div>
           </div>
         </div>
       </div>

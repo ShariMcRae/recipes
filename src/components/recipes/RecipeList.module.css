@@ -4,20 +4,15 @@ div.recipes {
   flex-direction: column;
   overflow: auto;
   flex-wrap: nowrap;
-  
-  /* 
-  background-color: #eaf0fb;
-  padding: 1rem;
-  border-bottom: solid 1px rgb(161, 160, 160); */
 }
 
 .recipes a span {
   float: right;
-  color: #eeb004;
+  color: var(--star-color);
 }
 
 .recipes a:global(.active) div {
-  background-color: #dde8fc;
+  background-color: var(--primary-color);
 }
 
 .recipes a {
@@ -25,13 +20,8 @@ div.recipes {
 }
 
 .recipes div:hover {
-  background: #f3f2f2;
+  background: var(--hover-color);
 } 
-
-html,
-body {
-  height: 100%;
-}
 
 h5.recipeList {
   line-height: .3rem;

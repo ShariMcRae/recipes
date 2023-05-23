@@ -1,0 +1,39 @@
+
+:root {
+  --primary-color: #eaf0fb;
+  --secondary-color: #d1e0f8;
+  --border: 1px solid #9e9b9b;
+  --border-color: #9e9b9b;
+  --background-color: white;
+  --button-border-color: #ffffff;
+  --text-color: #000000;  
+  --blank-color:#dde1e9;
+  --hover-color:#f3f2f2;
+  --star-color: #eeb004;
+}
+
+button.recipe {
+  background-color: var(--primary-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+button.recipe:hover,
+button.recipe:active:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+textarea, select, input, button {
+  box-shadow: 0 0px 1px var(--border-color), 0 1px 2px var(--border-color);
+} 
+
+textarea.recipe {
+  resize: both;
+  overflow: auto;
+  height: 5rem;
+}
+
+
+

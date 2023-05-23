@@ -1,10 +1,10 @@
 .recipeFooter {
-  border-top: solid 1px rgb(161, 160, 160);
-  background-color: #eaf0fb;
+  border-top: var(--border);
+  background-color: var(--secondary-color);
 }
 
 .detail {
-  background-color: #ffffff;
+  background-color: var(--background-color);
   margin-top: 4rem;
   margin-bottom: 3rem;
 }

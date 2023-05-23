@@ -4,8 +4,6 @@ import { Form, redirect } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { createRecipe } from "../../rest/recipes";
 
-import styles from './NewRecipe.module.css';
-
 // Create a new recipe record when they click
 // the New button and navigate to the edit recipe page.
 export async function action() {
@@ -31,7 +29,7 @@ export default function NewRecipe({unsavedChanges, setUnsavedChanges }) {
         else event.preventDefault();
       }}
     >
-      <Button type="submit" className={styles.recipe}>New</Button>
+      <Button type="submit" className="recipe">New</Button>
     </Form>
   );
 }

@@ -5,19 +5,14 @@ div.ingredientListItem {
 }
 
 div.ingredientListItem:hover {
-  background: #f3f2f2;
+  background: var(--hover-color);
 }
 
 div.cardHeader {
-  background-color: rgb(215, 228, 252);
+  background-color: var(--primary-color);
 }
 
 div.cardFooter {
-  background-color: rgb(215, 228, 252);
+  background-color: var(--primary-color);
 }
 
-button.recipe {
-  background-color: rgb(192, 214, 251);
-  border-color: #9e9b9b;
-  color: black;
-}

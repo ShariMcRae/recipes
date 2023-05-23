@@ -11,7 +11,7 @@ import FormGroup from "react-bootstrap/FormGroup";
 import FormControl from "react-bootstrap/FormControl";
 import ListGroup from "react-bootstrap/ListGroup";
 
-import styles from './IngredientList.module.css';
+import styles from "./IngredientList.module.css";
 
 // Create a card to hold the list of ingredients.
 // Allow for rows to be deleted and added.
@@ -20,7 +20,6 @@ const IngredientListEdit = ({
   setIngredients,
   setUnsavedChanges,
 }) => {
-
   const [newIngredient, setNewIngredient] = useState("");
 
   const removeIngredient = (index) => {
@@ -52,11 +51,12 @@ const IngredientListEdit = ({
         </Card.Header>
         <Card.Body className="p-0">
           {ingredients.map((ingredient, index) => (
-            <ListGroup.Item 
+            <ListGroup.Item
               className={`${styles.ingredientListItem} border`}
-              key={index}>
-
-              <Button className={`${styles.recipe} btn-sm pt-0 pb-0 me-2`}
+              key={index}
+            >
+              <Button
+                className="recipe btn-sm pt-0 pb-0 me-2"
                 title="Delete Ingredient"
                 onClick={() => removeIngredient(index)}
               >
@@ -82,13 +82,13 @@ const IngredientListEdit = ({
             <FormControl
               id="newIngredient"
               aria-label="New Ingredient."
-              placeholder=""
+              placeholder="Add ingredient."
               type="text"
               value={newIngredient}
               onChange={(event) => setNewIngredient(event.currentTarget.value)}
             />
             <Button
-              className={`${styles.recipe} btn-sm`}
+              className="recipe btn-sm"
               type="button"
               onClick={() => addIngredient()}
             >
@@ -99,6 +99,6 @@ const IngredientListEdit = ({
       </Card>
     </FormGroup>
   );
-}
+};
 
 export default memo(IngredientListEdit);

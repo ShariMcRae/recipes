@@ -36,7 +36,7 @@ const FilterRecipes = ({
   // Display form for submitting search
   // and filter parameters.
   return (
-    <Form id="search-form" role="search">
+    <Form id="search-form" role="search" className="w-100">
       <InputGroup id="search" className="d-flex flex-nowrap">
         <InputGroup.Text id="search-symbol">🔍</InputGroup.Text>
         <FormControl

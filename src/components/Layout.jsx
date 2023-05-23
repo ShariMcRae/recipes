@@ -3,9 +3,6 @@ import { Outlet, useLoaderData } from "react-router-dom";
 
 import { getRecipes } from "../rest/recipes";
 import { getRecipeTypes } from "../rest/recipeTypes";
-import FilterRecipes from "./recipes/FilterRecipes";
-import NewRecipe from "./recipes/NewRecipe";
-import RecipeList from "./recipes/RecipeList";
 
 import styles from "./Layout.module.css";
 import Header from "./Header";
@@ -53,9 +50,6 @@ export default function Layout() {
   // @ts-ignore
   const { recipes, recipeTypes, q, qType } = useLoaderData();
 
-  // Use state variable to toggle between showing and hiding the menu
-  const [isHidden, setIsHidden] = useState(false);
-
   // Track whether there are unsaved changes on the recipe edit form.
   const [unsavedChanges, setUnsavedChanges] = useState(false);
 
@@ -81,27 +75,5 @@ export default function Layout() {
       </main>
       <footer className={`${styles.recipeFooter} fixed-bottom p-4`}></footer>
     </>
-
-    // <div className="h-100">
-    //   <Header
-    //     q={q}
-    //     qType={qType}
-    //     recipes={recipes}
-    //     recipeTypes={recipeTypes}
-    //     unsavedChanges={unsavedChanges}
-    //     setUnsavedChanges={setUnsavedChanges}
-    //   />
-    //   <main className="h-100" style={{ backgroundColor: "#eaf0fb" }}>
-    //     <div>
-    //       <div
-    //         className={`${styles.detail} px-5 py-5`}
-    //         style={{ backgroundColor: "#ffffff" }}
-    //       >
-    //         <Outlet context={[unsavedChanges, setUnsavedChanges]} />
-    //       </div>
-    //       <div className={styles.menuFooter}> </div>
-    //     </div>
-    //   </main>
-    // </div>
   );
 }

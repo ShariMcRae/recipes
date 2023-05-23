@@ -13,8 +13,6 @@ import { updateRecipe, getRecipe } from "../../rest/recipes";
 import { getRecipeTypes } from "../../rest/recipeTypes";
 import IngredientList from "./IngredientList";
 
-import styles from "./EditRecipe.module.css";
-
 // Load the recipe, the recipe types, and
 // the search/filter parameters to preserve the menu state.
 // If recipe not found, throw an error.
@@ -94,7 +92,7 @@ const EditRecipe = () => {
             type="text"
             placeholder=""
             name="description"
-            className={`${styles.field} mt-1 w-75`}
+            className={`mt-1 w-75`}
             value={newRecipe.description}
             onChange={handleChange}
             aria-label="Description"
@@ -106,7 +104,7 @@ const EditRecipe = () => {
             type="text"
             placeholder=""
             name="imageURL"
-            className={`${styles.field} mt-1 w-75`}
+            className={`mt-1 w-75`}
             value={newRecipe.imageURL}
             onChange={handleChange}
             aria-label="Image URL"
@@ -141,7 +139,7 @@ const EditRecipe = () => {
         <FormGroup className="my-4">
           <span>Instructions</span>
           <FormControl
-            className={`${styles.recipe} mt-1`}
+            className="recipe mt-1"
             as="textarea"
             placeholder=""
             name="instructions"
@@ -153,12 +151,12 @@ const EditRecipe = () => {
         <FormControl type="hidden" name="id" value={newRecipe.id} />
         <FormControl type="hidden" name="q" value={q} />
         <FormControl type="hidden" name="qType" value={qType} />
-        <Button type="submit" className={`${styles.recipe} me-2`}>
+        <Button type="submit" className="recipe me-2">
           Save
         </Button>
         <Button
           type="button"
-          className={styles.recipe}
+          className="recipe"
           onClick={() => {
             if (
               // @ts-ignore

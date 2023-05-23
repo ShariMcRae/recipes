@@ -1,7 +1,7 @@
 img.recipe  {
   width: 30vmin;
   height: 30vmin;
-  background: rgb(221 225 233);
+  background: var(--blank-color);
   border-radius: 1rem;
   object-fit: cover;
   padding: 0.05rem;
@@ -12,10 +12,5 @@ h3.recipeDescription  {
   gap: 1rem;
 }
 
-button.recipe {
-  background-color: rgb(192, 214, 251);
-  border-color: #9e9b9b;
-  color: black;
-}
 
 

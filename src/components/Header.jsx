@@ -26,15 +26,10 @@ export default function Header({
         aria-disabled
         className="p-0"
       >
-        <Container fluid className={styles.menuTitle}>
-          <Navbar.Toggle
+        <Container fluid className={`${styles.pageHeader} px-3 py-2`}>
+          <Navbar.Toggle 
             aria-controls={`offcanvasNavbar-expand-${false}`}
-            style={{
-              backgroundSize: "0",
-              borderWidth: 1,
-              borderColor: "#d7e4fc",
-              backgroundColor: "#d7e4fc",
-            }}
+            className={`${styles.toggleButton} px-1`}
           />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${false}`}
@@ -43,33 +38,34 @@ export default function Header({
           >
             <Offcanvas.Header
               closeButton
-              className={styles.menuTitle}
-              style={{ backgroundColor: "#d7e4fc" }}
+              className={`${styles.menuTitle} px-3 py-2`}
             >
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${false}`}>
-                <img
-                  width="50"
-                  className="me-3"
-                  src={process.env.PUBLIC_URL + "/logo.webp"}
-                  alt="Logo"
-                />
-                Recipe Library
+                <div>
+                  <img
+                    width="50"
+                    className="me-3"
+                    src={process.env.PUBLIC_URL + "/logo.webp"}
+                    alt="Logo"
+                  />
+                  Recipe Library
+                </div>
               </Offcanvas.Title>
             </Offcanvas.Header>
-            <Offcanvas.Body style={{ backgroundColor: "#eaf0fb" }}>
-              <div className={`${styles.search} mb-3`}>
-                <FilterRecipes
-                  q={q}
-                  qType={qType}
-                  recipeTypes={recipeTypes}
-                  unsavedChanges={unsavedChanges}
-                  setUnsavedChanges={setUnsavedChanges}
-                />
-                <NewRecipe
-                  unsavedChanges={unsavedChanges}
-                  setUnsavedChanges={setUnsavedChanges}
-                />
-              </div>
+            <div className={`${styles.menuSection} p-3`}>
+              <FilterRecipes
+                q={q}
+                qType={qType}
+                recipeTypes={recipeTypes}
+                unsavedChanges={unsavedChanges}
+                setUnsavedChanges={setUnsavedChanges}
+              />
+              <NewRecipe
+                unsavedChanges={unsavedChanges}
+                setUnsavedChanges={setUnsavedChanges}
+              />
+            </div>
+            <Offcanvas.Body className={styles.recipeMenu}>
               <RecipeList
                 q={q}
                 qType={qType}
