@@ -19,7 +19,7 @@ export default function FavoriteStar({ recipe }) {
   let favorite = recipe.favorite;
   return (
     <fetcher.Form method="post">
-      <Button className={styles.star}
+      <Button className={`${styles.star} lh-1 mb-2`}
         type="submit"
         name="favorite"
         value={favorite ? "false" : "true"}

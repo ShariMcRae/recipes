@@ -1,17 +1,13 @@
-.recipe img {
-  width: 15rem;
-  height: 15rem;
+img.recipe  {
+  width: 30vh;
   background: rgb(221 225 233);
-  margin-right: 2rem;
   border-radius: 1.5rem;
   object-fit: cover;
   padding: 0.05rem;
 }
 
-.recipe h3 {
-  display: flex;
-  align-items: center;
-  margin-top: 1rem;
+h3.recipeDescription  {
+  display:flex;
   gap: 1rem;
 }
 
@@ -20,3 +16,5 @@ button.recipe {
   border-color: #9e9b9b;
   color: black;
 }
+
+

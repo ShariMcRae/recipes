@@ -1,3 +1,10 @@
-.menuFooter {
+.recipeFooter {
   border-top: solid 1px rgb(161, 160, 160);
+  background-color: #eaf0fb;
+}
+
+.detail {
+  background-color: #ffffff;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }

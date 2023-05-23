@@ -63,26 +63,45 @@ export default function Layout() {
   // on the left, a dividing line that can be used to hide/show the menu,
   // and an outlet on the right for updating the page content.
   return (
-    <div className="h-100">
-      <Header
-        q={q}
-        qType={qType}
-        recipes={recipes}
-        recipeTypes={recipeTypes}
-        unsavedChanges={unsavedChanges}
-        setUnsavedChanges={setUnsavedChanges}
-      />
-      <main className="h-100" style={{ backgroundColor: "#eaf0fb" }}>
-        <div>
-          <div
-            className={`${styles.detail} px-5 py-5`}
-            style={{ backgroundColor: "#ffffff" }}
-          >
-            <Outlet context={[unsavedChanges, setUnsavedChanges]} />
-          </div>
-          <div className={styles.menuFooter}> </div>
+    <>
+      <header className={`fixed-top`}>
+        <Header
+          q={q}
+          qType={qType}
+          recipes={recipes}
+          recipeTypes={recipeTypes}
+          unsavedChanges={unsavedChanges}
+          setUnsavedChanges={setUnsavedChanges}
+        />
+      </header>
+      <main className={`p-5`}>
+        <div className={`${styles.detail}`}>
+          <Outlet context={[unsavedChanges, setUnsavedChanges]} />
         </div>
       </main>
-    </div>
+      <footer className={`${styles.recipeFooter} fixed-bottom p-4`}></footer>
+    </>
+
+    // <div className="h-100">
+    //   <Header
+    //     q={q}
+    //     qType={qType}
+    //     recipes={recipes}
+    //     recipeTypes={recipeTypes}
+    //     unsavedChanges={unsavedChanges}
+    //     setUnsavedChanges={setUnsavedChanges}
+    //   />
+    //   <main className="h-100" style={{ backgroundColor: "#eaf0fb" }}>
+    //     <div>
+    //       <div
+    //         className={`${styles.detail} px-5 py-5`}
+    //         style={{ backgroundColor: "#ffffff" }}
+    //       >
+    //         <Outlet context={[unsavedChanges, setUnsavedChanges]} />
+    //       </div>
+    //       <div className={styles.menuFooter}> </div>
+    //     </div>
+    //   </main>
+    // </div>
   );
 }

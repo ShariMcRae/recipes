@@ -7,26 +7,18 @@ import {
   Form,
 } from "react-router-dom";
 
-import {
-  FormGroup,
-  FormControl,
-  Button,
-  Row,
-  Col,
-  FormSelect,
-} from "react-bootstrap";
+import { FormGroup, FormControl, Button, FormSelect } from "react-bootstrap";
 
 import { updateRecipe, getRecipe } from "../../rest/recipes";
 import { getRecipeTypes } from "../../rest/recipeTypes";
 import IngredientList from "./IngredientList";
 
-import styles from './EditRecipe.module.css';
+import styles from "./EditRecipe.module.css";
 
 // Load the recipe, the recipe types, and
 // the search/filter parameters to preserve the menu state.
 // If recipe not found, throw an error.
 export async function loader({ params, request }) {
-
   const recipeTypes = await getRecipeTypes("", "typeName", "asc");
   const recipe = await getRecipe(params.recipeId);
   if (!recipe) throw new Error("Recipe not found.");
@@ -41,7 +33,6 @@ export async function loader({ params, request }) {
 // DisplayRecipe page and pass along search/filter
 // parameters on the URL to preserve menu state.
 export async function action({ request, params }) {
-  
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
   const q = updates["q"];
@@ -50,7 +41,8 @@ export async function action({ request, params }) {
   // Translate ingredient input fields into an array.
   // There must be a better way.
   const ingredientKeys = Object.keys(updates).filter((key) =>
-    key.startsWith("ingredients"));
+    key.startsWith("ingredients")
+  );
   const ingredients = ingredientKeys.map((key) => updates[key]);
 
   const recipeChanges = {
@@ -66,7 +58,6 @@ export async function action({ request, params }) {
 
 // Render the form for editing a recipe.
 const EditRecipe = () => {
-  
   // @ts-ignore
   const { recipe, recipeTypes, q, qType } = useLoaderData();
   const navigate = useNavigate();
@@ -82,8 +73,8 @@ const EditRecipe = () => {
   // update newRecipe for every change
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewRecipe(previousState => {
-      return { ...previousState, [name]: value }
+    setNewRecipe((previousState) => {
+      return { ...previousState, [name]: value };
     });
 
     // @ts-ignore
@@ -95,116 +86,98 @@ const EditRecipe = () => {
   return (
     // @ts-ignore
     <Form method="post" onSubmit={() => context[1](false)}>
-      <Row>
+      <div className="container">
         <h3>Edit Recipe</h3>
-      </Row>
-      <Row>
-        <Col className="me-4">
-          <FormGroup className="mb-3">
-            <label>
-              <span>Description</span>
-              <FormControl
-                type="text"
-                placeholder=""
-                name="description"
-                className="mt-1"
-                value={newRecipe.description}
-                onChange={handleChange}
-                
-                aria-label="Description"
-              />
-            </label>
-          </FormGroup>
-
-          <FormGroup className="mb-3">
-            <label>
-              <span>Image URL</span>
-              <FormControl
-                type="text"
-                placeholder=""
-                name="imageURL"
-                className="mt-1"
-                value={newRecipe.imageURL}
-                onChange={handleChange}
-                
-                aria-label="Image URL"
-              />
-            </label>
-          </FormGroup>
-          <IngredientList
-            ingredients={ingredients}
-            setIngredients={setIngredients}
-            setUnsavedChanges={
-              // @ts-ignore
-              context[1]
-            }
+        <FormGroup className="my-4">
+          <span>Description</span>
+          <FormControl
+            type="text"
+            placeholder=""
+            name="description"
+            className={`${styles.field} mt-1 w-75`}
+            value={newRecipe.description}
+            onChange={handleChange}
+            aria-label="Description"
           />
-        </Col>
-        <Col className="pt-0 mt-0">
-          <FormGroup className="mb-3">
-            <label>
-              <span>Recipe Type</span>
-              <FormSelect
-                name="recipeTypeId"
-                className="me-2 mt-1"
-                onChange={handleChange}
-                value={newRecipe.recipeTypeId}>
-
-                <option value={0} key={0}></option>
-                {recipeTypes.map((recipeType) => (
-                  <option value={recipeType.id} key={recipeType.id}>
-                    {recipeType.typeName}
-                  </option>))}
-              </FormSelect>
-            </label>
-          </FormGroup>
-
-          <FormGroup className="mb-3">
-            <label>
-              <span>Instructions</span>
-              <FormControl
-                className={`${styles.recipe} mt-1`}
-                as="textarea"
-                placeholder=""
-                name="instructions"
-                value={newRecipe.instructions}
-                onChange={handleChange}
-                aria-label="Instruction"
-              />
-            </label>
-          </FormGroup>
-        </Col>
-      </Row>
-      <Row className="pt-2">
-        <Col>
-          <FormControl type="hidden" name="id" value={newRecipe.id} />
-          <FormControl type="hidden" name="q" value={q} />
-          <FormControl type="hidden" name="qType" value={qType} />
-          <Button type="submit" className={`${styles.recipe} me-2`}>
-            Save
-          </Button>
-          <Button
-            type="button" className={styles.recipe}
-            onClick={() => {
-              if (
-                // @ts-ignore
-                !context[0] ||
-                window.confirm(
-                  "There are unsaved changes to the current recipe. Do you wish to continue?"
-                )
-              ) {
-                // @ts-ignore
-                context[1](false);
-                navigate(`/${newRecipe.id}?q=${q}&qType=${qType}`);
-              }
-            }}
-          >
-            Cancel
-          </Button>
-        </Col>
-      </Row>
+        </FormGroup>
+        <FormGroup className="mb-3">
+          <span>Image URL</span>
+          <FormControl
+            type="text"
+            placeholder=""
+            name="imageURL"
+            className={`${styles.field} mt-1 w-75`}
+            value={newRecipe.imageURL}
+            onChange={handleChange}
+            aria-label="Image URL"
+          />
+        </FormGroup>
+        <IngredientList
+          ingredients={ingredients}
+          setIngredients={setIngredients}
+          setUnsavedChanges={
+            // @ts-ignore
+            context[1]
+          }
+        />
+        <FormGroup className="mb-4">
+          <label>
+            <span>Recipe Type</span>
+            <FormSelect
+              name="recipeTypeId"
+              className="me-2 mt-1"
+              onChange={handleChange}
+              value={newRecipe.recipeTypeId}
+            >
+              <option value={0} key={0}></option>
+              {recipeTypes.map((recipeType) => (
+                <option value={recipeType.id} key={recipeType.id}>
+                  {recipeType.typeName}
+                </option>
+              ))}
+            </FormSelect>
+          </label>
+        </FormGroup>
+        <FormGroup className="my-4">
+          <span>Instructions</span>
+          <FormControl
+            className={`${styles.recipe} mt-1`}
+            as="textarea"
+            placeholder=""
+            name="instructions"
+            value={newRecipe.instructions}
+            onChange={handleChange}
+            aria-label="Instruction"
+          />
+        </FormGroup>
+        <FormControl type="hidden" name="id" value={newRecipe.id} />
+        <FormControl type="hidden" name="q" value={q} />
+        <FormControl type="hidden" name="qType" value={qType} />
+        <Button type="submit" className={`${styles.recipe} me-2`}>
+          Save
+        </Button>
+        <Button
+          type="button"
+          className={styles.recipe}
+          onClick={() => {
+            if (
+              // @ts-ignore
+              !context[0] ||
+              window.confirm(
+                "There are unsaved changes to the current recipe. Do you wish to continue?"
+              )
+            ) {
+              // @ts-ignore
+              context[1](false);
+              navigate(`/${newRecipe.id}?q=${q}&qType=${qType}`);
+            }
+          }}
+        >
+          Cancel
+        </Button>
+      </div>
     </Form>
   );
-}
+};
 
 export default memo(EditRecipe);
