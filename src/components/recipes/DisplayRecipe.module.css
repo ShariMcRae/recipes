@@ -1,7 +1,8 @@
 img.recipe  {
-  width: 30vh;
+  width: 30vmin;
+  height: 30vmin;
   background: rgb(221 225 233);
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   object-fit: cover;
   padding: 0.05rem;
 }

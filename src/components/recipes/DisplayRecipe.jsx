@@ -38,14 +38,14 @@ const DisplayRecipe = () => {
       <div className="container ">
         <div className="row">
           <div className="col">
-            <div>
+
               <img
-                className={`${styles.recipe} img-thumbnail mb-5`}
+                className={`${styles.recipe} mb-5`}
                 key={recipe.imageURL}
                 src={recipe.imageURL || null}
                 alt={recipe.description}
               />
-            </div>
+
             <h3 className={styles.recipeDescription}>
               {recipe.description ? (
                 <>{recipe.description}</>
