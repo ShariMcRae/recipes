@@ -38,16 +38,16 @@ export default function Header({
           >
             <Offcanvas.Header
               closeButton
-              className={`${styles.menuTitle} px-3 py-2`}
+              className={`${styles.menuTitle} ps-3 pe-4 py-2`}
             >
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${false}`}>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${false}`} className="d-flex">
                 <img
-                  width="50"
-                  className="me-3"
+                  width="40"
+                  className="me-3 m-1"
                   src={process.env.PUBLIC_URL + "/logo.webp"}
                   alt="Logo"
                 />
-                Recipe Library
+                <h4 className="pt-2 mt-1">Recipe Library</h4>
               </Offcanvas.Title>
             </Offcanvas.Header>
             <div className={`${styles.menuSection} p-3`}>
@@ -75,9 +75,9 @@ export default function Header({
           </Navbar.Offcanvas>
           <Navbar.Brand className="p-0 m-0 pt-1 pe-2">
             <div className="d-flex">
-              <h3 className="pt-2">Recipe Library</h3>
+              <h3 className="pt-1">Recipe Library</h3>
               <img
-                width="50"
+                width="40"
                 className="ms-3 pb-1"
                 src={process.env.PUBLIC_URL + "/logo.webp"}
                 alt="Logo"
