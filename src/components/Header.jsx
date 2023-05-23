@@ -27,7 +27,7 @@ export default function Header({
         className="p-0"
       >
         <Container fluid className={`${styles.pageHeader} px-3 py-2`}>
-          <Navbar.Toggle 
+          <Navbar.Toggle
             aria-controls={`offcanvasNavbar-expand-${false}`}
             className={`${styles.toggleButton} px-1`}
           />
@@ -74,13 +74,15 @@ export default function Header({
             </Offcanvas.Body>
           </Navbar.Offcanvas>
           <Navbar.Brand className="p-0 m-0 pt-1 pe-2">
-          <div className="d-flex"><h3 className="pt-2">Recipe Library</h3>
-            <img
-                    width="50"
-                    className="ms-3 pb-1"
-                    src={process.env.PUBLIC_URL + "/logo.webp"}
-                    alt="Logo"
-                  />     </div>       
+            <div className="d-flex">
+              <h3 className="pt-2">Recipe Library</h3>
+              <img
+                width="50"
+                className="ms-3 pb-1"
+                src={process.env.PUBLIC_URL + "/logo.webp"}
+                alt="Logo"
+              />{" "}
+            </div>
           </Navbar.Brand>
         </Container>
       </Navbar>
