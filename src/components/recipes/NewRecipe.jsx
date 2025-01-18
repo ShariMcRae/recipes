@@ -7,7 +7,7 @@ import { createRecipe } from "../../rest/recipes";
 // Create a new recipe record when they click
 // the New button and navigate to the edit recipe page.
 export async function action() {
-  const recipe = await createRecipe();
+  var recipe = await createRecipe();
   return redirect(`/${recipe.id}`);
 }
 

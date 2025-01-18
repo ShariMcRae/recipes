@@ -31,7 +31,7 @@ export async function createRecipe() {
     instructions: "",
     ingredients: [],
     imageURL: "",
-    recipeTypeId: "",
+    recipeTypeId: "1",
     favorite: false,
   };
   return createRecord(RECIPES_ENDPOINT, recipe);
